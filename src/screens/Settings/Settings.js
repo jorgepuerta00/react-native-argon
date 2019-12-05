@@ -75,9 +75,9 @@ export default class Settings extends React.Component {
               <Text bold center size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
                 {i18n.t('settings.titleSetionOne')}
               </Text>
-              <Text center muted size={12}>
+              {/*<Text center muted size={12}>
                 {i18n.t('settings.descriptionSetionOne')}
-              </Text>
+          </Text>*/}
             </Block>
           }
         />        

@@ -28,8 +28,13 @@ class Card extends React.Component {
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Appointment')}>
           <Block flex space="between" style={styles.cardDescription}>
-            <Text size={14} style={styles.cardTitle}>{item.title}</Text>
-            <Text size={12} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta}</Text>
+            <Text size={18} style={styles.cardTitle}>{item.title}</Text>
+            <Text size={18} style={styles.cardText}>{item.text}</Text>
+            <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
+              <Block style={styles.divider} />
+            </Block>
+            <Text size={18} style={styles.cardTitle}>{item.title2}</Text>
+            <Text size={18} style={styles.cardText}>{item.text2}</Text>
           </Block>
         </TouchableWithoutFeedback>
       </Block>
@@ -46,6 +51,11 @@ Card.propTypes = {
 }
 
 const styles = StyleSheet.create({
+  divider: {
+    width: "90%",
+    borderWidth: 1,
+    borderColor: "#E9ECEF"
+  },
   card: {
     backgroundColor: theme.COLORS.WHITE,
     marginVertical: theme.SIZES.BASE,
@@ -56,7 +66,19 @@ const styles = StyleSheet.create({
   cardTitle: {
     flex: 1,
     flexWrap: 'wrap',
-    paddingBottom: 6
+    marginTop: 20,
+    paddingBottom: 6,
+    fontSize: 24,
+    textAlign: 'justify',
+    fontWeight: 'bold'
+  },
+  cardText: {
+    flex: 1,
+    flexWrap: 'wrap',
+    marginTop: 15,
+    paddingBottom: 6,
+    fontSize: 18,
+    textAlign: 'justify'
   },
   cardDescription: {
     padding: theme.SIZES.BASE / 2

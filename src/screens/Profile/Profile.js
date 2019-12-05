@@ -43,7 +43,7 @@ class Profile extends React.Component {
 
 const styles = StyleSheet.create({
   profile: {
-    marginTop: Platform.OS === "android" ? -HeaderHeight : 0,
+    //marginTop: Platform.OS === "android" ? -HeaderHeight : 0,
     flex: 1
   },
   profileContainer: {
@@ -52,11 +52,12 @@ const styles = StyleSheet.create({
     zIndex: 1
   },
   profileCard: {
+    width: width * 0.9,
+    height: height * 0.5,
     padding: theme.SIZES.BASE,
     marginHorizontal: theme.SIZES.BASE,
     marginTop: 65,
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
+    borderRadius: 10,
     backgroundColor: theme.COLORS.WHITE,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 0 },

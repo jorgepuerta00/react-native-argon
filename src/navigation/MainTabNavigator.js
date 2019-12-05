@@ -79,15 +79,6 @@ const HomeStack = createStackNavigator({
         ),
       })
     },
-    Pro: {
-      screen: Pro,
-      navigationOptions: ({ navigation }) => ({
-        header: (
-          <Header left={<Block />} white transparent navigation={navigation} />
-        ),
-        headerTransparent: true
-      }),
-    }
   },{
     cardStyle: {
       backgroundColor: "#F8F9FE"
@@ -213,6 +204,15 @@ const SettingsStack = createStackNavigator({
         <Header title={i18n.t('navigation.settings')} navigation={navigation} />
       ),
     })
+  },
+  Pro: {
+    screen: Pro,
+    navigationOptions: ({ navigation }) => ({
+      header: (
+        <Header title={i18n.t('navigation.settings')} navigation={navigation} />
+      ),
+      headerTransparent: true
+    }),
   }
 },{
   cardStyle: { 

@@ -53,7 +53,7 @@ export default class Pro extends React.Component {
                 shadowless
                 style={styles.button}
                 color={argonTheme.COLORS.INFO}
-                onPress={() => navigation.navigate('Home')}>
+                onPress={() => navigation.navigate('Settings')}>
                 <Text bold color={theme.COLORS.WHITE}>{i18n.t('pro.comingSoon')}</Text>
               </Button>
             </Block>
