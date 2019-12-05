@@ -15,7 +15,7 @@ class Home extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.articles}>
         <Block flex>
-          <Card item={articles[4]} full />
+          <Card strong={true} item={articles[4]} full />
         </Block>
       </ScrollView>
     )

@@ -125,8 +125,6 @@ const LoginPage = props => {
 }
 
 const LoggedInPage = props => {
-  console.log(props.name);
-  console.log(props.photoUrl);
   return (
     props.navigation.navigate("Profile", {
       name: props.name,

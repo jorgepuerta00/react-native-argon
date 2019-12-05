@@ -1,7 +1,7 @@
 {
-  "name": "argon-react-native",
+  "name": "app-mobile-camilo",
   "version": "1.3.0",
-  "description": "Argon React Native, based on Argon Design System. Coded by Creative Tim",
+  "description": "app mobile camilo",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",

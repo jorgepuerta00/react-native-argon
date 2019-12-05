@@ -1,13 +1,13 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
-import { StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Block, Text, theme } from 'galio-framework';
 import { argonTheme } from '../constants';
 
 class Card extends React.Component {
   render() {
-    const { navigation, item, horizontal, full, style, ctaColor, imageStyle } = this.props;
+    const { navigation, item, horizontal, full, style, ctaColor, imageStyle, strong } = this.props;
     
     const imageStyles = [
       full ? styles.fullImage : styles.horizontalImage,
@@ -21,22 +21,32 @@ class Card extends React.Component {
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Appointment')}>
-          <Block flex style={imgContainer}>
-            <Image source={{uri: item.image}} style={imageStyles} />
-          </Block>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Appointment')}>
-          <Block flex space="between" style={styles.cardDescription}>
-            <Text size={18} style={styles.cardTitle}>{item.title}</Text>
-            <Text size={18} style={styles.cardText}>{item.text}</Text>
-            <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
-              <Block style={styles.divider} />
-            </Block>
-            <Text size={18} style={styles.cardTitle}>{item.title2}</Text>
-            <Text size={18} style={styles.cardText}>{item.text2}</Text>
-          </Block>
-        </TouchableWithoutFeedback>
+        {strong ? (
+            <TouchableOpacity activeOpacity={1} >
+              <Block flex style={imgContainer}>
+                <Image source={{uri: item.image}} style={imageStyles} />
+              </Block>
+              <Block flex space="between" style={styles.cardDescription}>
+                <Text size={18} style={styles.cardTitle}>{item.title}</Text>
+                <Text size={18} style={styles.cardText}>{item.text}</Text>
+                <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
+                  <Block style={styles.divider} />
+                </Block>
+                <Text size={18} style={styles.cardTitle}>{item.title2}</Text>
+                <Text size={18} style={styles.cardText}>{item.text2}</Text>
+              </Block>
+            </TouchableOpacity>
+        ) : (
+            <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Appointment')}>
+              <Block flex style={imgContainer}>
+                <Image source={{uri: item.image}} style={imageStyles} />
+              </Block>
+              <Block flex space="between" style={styles.cardDescription}>
+                <Text size={14} style={styles.cardTitleLittle}>{item.title}</Text>
+                <Text size={12} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta}</Text>
+              </Block>
+            </TouchableOpacity>
+        )}        
       </Block>
     );
   }
@@ -62,6 +72,11 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     minHeight: 114,
     marginBottom: 16
+  },
+  cardTitleLittle: {
+    flex: 1,
+    flexWrap: 'wrap',
+    paddingBottom: 6
   },
   cardTitle: {
     flex: 1,

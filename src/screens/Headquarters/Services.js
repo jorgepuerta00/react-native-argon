@@ -62,8 +62,8 @@ class Services extends React.Component {
   renderService = (item, index) => {
     return (
       <Block flex row key={`service-${index}`}>
-        <Card item={item.data[0]} style={{ marginRight: theme.SIZES.BASE }}/>
-        <Card item={item.data[1]} />
+        <Card strong={false} item={item.data[0]} style={{ marginRight: theme.SIZES.BASE }}/>
+        <Card strong={false} item={item.data[1]} />
       </Block> 
     );
   };
