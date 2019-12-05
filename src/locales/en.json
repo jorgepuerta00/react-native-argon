@@ -1,0 +1,128 @@
+{
+    "appName": "Argon",
+    "navigation": {
+      "home": "Home",
+      "profile": "Profile",
+      "settings": "Settings",
+      "headquarters": "Headquarters"      
+    },
+    "onboarding": {
+        "title": "Loading",
+        "subtitle": "System...",
+        "loading": "We are loading yours components, please be patient!"
+    },
+    "home": {
+        "title":"Home",
+        "welcome": "Welcome to %{appName}!"
+    },
+    "profile": {
+        "title":"Profile",
+        "connect": "CONNECT",
+        "message": "MESSAGE",
+        "orders": "Orders",
+        "photos": "Photos",
+        "comments": "Comments",
+        "text": "An artist of considerable range, Jessica name taken by Melbourne …",
+        "showMore": "Show More",
+        "album": "Album",
+        "viewAll": "View all"
+    },
+    "login": {
+        "title":"Login",
+        "signInTitle": "Sign in with",
+		"signInSubtitle": "Or sign in the classic way",
+		"email": "Email",
+		"password": "Password",
+		"login": "LOGIN",
+		"createAccount": "Create Account",
+        "forgotPassword": "Forgot Password?",
+        "signInGoogle": "Sign in with Google"        
+    },
+    "register": {
+        "title":"register",
+        "signInTitle": "Sign up with",
+        "signInSubtitle": "Or sign up the classic way",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+		"passwordStrength": "Password Strength:",
+        "passwordStrong": "Strong",
+        "passwordWeak": "Weak ",
+        "agreementText": "I agree with the",
+		"privacyPolicy": "Privacy Policy",
+        "createAccount": "CREATE ACCOUNT",
+        "signInGoogle": "Sign up with Google"  
+    },
+    "settings": {
+        "title":"Settings",
+		"titleSetionOne":"Recommended Settings",
+		"descriptionSetionOne":"These are the most important settings",
+		"titleSetionTwo":"Payment Settings",
+		"descriptionSetionTwo":"These are also important settings",
+		"titleSetionThree":"Privacy Settings",
+		"descriptionSetionThree":"Third most important settings",
+        "face": "Use FaceID to sign in",
+		"autolock": "Auto-Lock security",
+		"notifications": "Notifications",
+		"payment": "Manage Payment Options",
+		"gift": "Manage Gift Cards",
+		"agreement": "User Agreement",
+		"privacy": "Privacy",
+        "about": "About",
+        "lenguage": "English"
+    },
+    "headquarters": {
+        "title":"Headquarters",
+        "welcome": "Welcome to %{appName}!"
+    },
+    "services": {
+        "title":"Beauty Services",
+        "available":"Check availability",
+        "serviceOne":"Spa and Health Center",
+        "serviceTwo":"Hair & Makeup",
+        "serviceThree":"Cosmetic Dentist",
+        "serviceFour":"Massage Therapy",
+        "serviceFive":"Dry Clean and Laundry",
+        "serviceSix":"Dog Daycare, Board, Groom"
+    },
+    "header": {
+        "search": "What are you looking for?",
+        "option1": "Meetings",
+        "option2": "Notifications" 
+    },
+    "pro": {
+        "comingSoon": "Coming Soon"
+    },
+    "forgotpassword": {
+        "title": "Forgot Password",
+        "forgotPasswordTitleOne": "Forgor your",
+        "forgotPasswordTitleTwo": "Password?",
+        "steps": "Please follow next steps",
+        "typeEmail": "Type your email",
+        "sendCode": "SEND CODE"
+    },
+    "Resetpassword": {
+        "title": "Reset Password",
+        "forgotPasswordTitleOne": "Reset your",
+        "forgotPasswordTitleTwo": "Password",
+        "steps": "Please follow next steps",
+        "code": "Code",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm Password",
+        "passwordStrength": "Password Strength:",
+        "passwordStrong": "Strong",
+        "passwordWeak": "Weak ",
+        "done": "DONE"
+    },
+    "appointment": {
+        "title": "Appointment",
+        "avaible": "Avaible",
+        "unavaible": "Unavaible",
+        "busy": "Busy",
+        "confirmAppointment": "Confirm Appointment",
+        "confirmMessage": "Would you like confirm this appointment on DATE at TIME",
+        "cancel": "Cancel",
+        "ok": "OK"
+    }
+  }

@@ -1,0 +1,128 @@
+{
+    "appName": "Argon",
+    "navigation": {
+      "home": "Inicio",
+      "profile": "Perfil",
+      "settings": "Configuración",
+      "headquarters": "Sedes"
+    },
+    "onboarding": {        
+        "title": "Cargando",
+        "subtitle": "Aplicación...",
+        "loading": "Estamos cargando tus componentes, por favor espere!"
+    },
+    "home": {
+        "title": "Inicio",
+        "welcome": "Bienvenido a %{appName}!"
+    },
+    "profile": {
+        "title":"Perfil",
+        "connect": "CONECTAR",
+        "message": "MENSAJES",
+        "orders": "Pedidos",
+        "photos": "Fotos",
+        "comments": "Comentarios",
+        "text": "Artista de considerable alcance, nombre de Jessica tomado por Melbourne …",
+        "showMore": "Ver más",
+        "album": "Álbum",
+        "viewAll": "Ver todo"
+    },
+    "login": {
+        "title": "Login",
+        "signInTitle": "Inicia sesión con",
+		"signInSubtitle": "O inicia de la manera clásica",
+		"email": "Correo",
+		"password": "Contraseña",
+		"login": "EMPEZAR",
+		"createAccount" : "Quiero Registrarme",
+        "forgotPassword": "Olvidé mi contraseña",
+        "signInGoogle": "Ingresa con Google"
+    },
+    "register": {
+        "title":"Registrar",
+        "signInTitle": "Regístrate con",
+        "signInSubtitle": "O registrate de la manera clásica",
+        "name": "Nombre",
+        "email": "Correo",
+        "password": "Contraseña",
+        "confirmPassword": "Confirmar Contraseña",
+		"passwordStrength": "Seguridad de la contraseña:",
+        "passwordStrong": "Fuerte",
+        "passwordWeak": "Débil ",
+        "agreementText": "Estoy de acuerdo con la",
+        "privacyPolicy": "Política de privacidad",
+        "createAccount": "CREAR CUENTA",
+        "signInGoogle": "Registrate con Google"
+    },
+    "settings": {
+        "title": "Configuración",
+		"titleSetionOne":"Configuraciones recomendadas",
+		"descriptionSetionOne":"Estas son las configuraciones más importantes",
+		"titleSetionTwo":"Configuraciones de pago",
+		"descriptionSetionTwo":"Estas también son configuraciones importantes",
+		"titleSetionThree":"Configuración de privacidad",
+		"descriptionSetionThree":"Tercera configuración más importante",
+        "face": "Use FaceID para iniciar sesión",
+		"autolock": "Seguridad de bloqueo automático",
+		"notifications": "Notificaciones",
+		"payment": "Administrar opciones de pago",
+		"gift": "Administrar tarjetas de regalo",
+		"agreement": "Acuerdo de Usuario",
+		"privacy": "Privacidad",
+		"about": "Acerca de nosotros",
+        "lenguage": "Español"
+    },
+    "headquarters": {
+        "title": "Sedes",
+        "welcome": "Bienvenido a %{appName}!"
+    },    
+    "services": {
+        "title":"Servicios de belleza",
+        "available":"Ver disponibilidad",
+        "serviceOne":"Spa y centro de salud",
+        "serviceTwo":"Peluquería & Maquillaje",
+        "serviceThree":"Dentista cosmético",
+        "serviceFour":"Terapia de Masajes",
+        "serviceFive":"Limpieza en seco y lavandería",
+        "serviceSix":"Guardería para perros"
+    },
+    "header": {
+        "search": "Qué estás buscando?",
+        "option1": "Citas",
+        "option2": "Notificaciones"
+    },
+    "pro": {
+        "comingSoon": "Próximamente"
+    },
+    "forgotpassword": {
+        "title": "Olvidó su contraseña",
+        "forgotPasswordTitleOne": "Olvidaste tu",
+        "forgotPasswordTitleTwo": "Contraseña?",
+        "steps": "Por favor siga los siguientes pasos",
+        "typeEmail": "Escribe tu correo electrónico",
+        "sendCode": "ENVIAR CÓDIGO"
+    },
+    "Resetpassword": {
+        "title": "Reestablecer Constraseña",
+        "forgotPasswordTitleOne": "Restablece tú",
+        "forgotPasswordTitleTwo": "Contraseña",
+        "steps": "Por favor siga los siguientes pasos",
+        "code": "Código",
+        "newPassword": "Nueva Contraseña",
+        "confirmPassword": "Confirmar Contraseña",
+        "passwordStrength": "Seguridad de la contraseña:",
+        "passwordStrong": "Fuerte",
+        "passwordWeak": "Débil ",
+        "done": "TERMINAR"
+    },
+    "appointment": {
+        "title": "Cita",
+        "avaible": "Disponible",
+        "unavaible": "Sin disponibilidad",
+        "busy": "Ocupado",
+        "confirmAppointment": "Confirmar Cita",
+        "confirmMessage": "¿Desea confirmar esta cita el DATE a la(s) TIME?",
+        "cancel": "Cancelar",
+        "ok": "OK"
+    }
+  }
