@@ -1,11 +1,14 @@
 import React from "react";
 import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, StatusBar, Dimensions } from "react-native";
+import { withNavigation } from "react-navigation";
 import { Block, Text, Input } from "galio-framework";
 import * as Google from 'expo-google-app-auth';
 
 import { Button } from "../../components";
 import { Images, argonTheme } from "../../constants";
 import SocialButtons from '../../components/SocialButtons';
+
+import UserLogged from "../Profile/Profile"
 
 // Internationalization
 import i18n from '../../locales/i18n';
@@ -51,9 +54,9 @@ class Login extends React.Component {
     return (
       <Block flex middle>
         {this.state.signedIn ? (
-          <LoggedInPage navigation={navigation} name={this.state.name} photoUrl={this.state.photoUrl} />
+          <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} />          
         ) : (
-          <LoginPage signIn={this.signIn} />
+          <LoginPage navigation={navigation} signIn={this.signIn} />
         )}        
       </Block>
     );
@@ -108,10 +111,10 @@ const LoginPage = props => {
                   </Button>
                 </Block>
                 <Block style={styles.containerSignUp}>
-                  <Text style={styles.text} onPress={() => console.log(i18n.t('login.createAccount'))}>
+                  <Text style={styles.text} onPress={() => props.navigation.navigate("Register")}>
                     {i18n.t('login.createAccount')}
                   </Text>
-                  <Text style={styles.text} onPress={() => console.log(i18n.t('login.forgotPassword'))}>
+                  <Text style={styles.text} onPress={() => props.navigation.navigate("ForgotPassword")}>
                     {i18n.t('login.forgotPassword')}
                   </Text>
                 </Block>
@@ -126,10 +129,7 @@ const LoginPage = props => {
 
 const LoggedInPage = props => {
   return (
-    props.navigation.navigate("Profile", {
-      name: props.name,
-      photoUrl: props.photoUrl,
-    })
+    <UserLogged name={props.name} photoUrl={props.photoUrl} />
   )
 }
 
@@ -196,4 +196,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Login;
+export default withNavigation(Login);

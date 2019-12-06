@@ -10,7 +10,7 @@ import ProfileScreen from '../screens/Profile/Profile';
 import SetttingsScreen from '../screens/Settings/Settings';
 
 // screens Login
-import LoginScreen from '../screens/Profile/Login';
+import LoginScreen from '../screens/Profile/MyAccount';
 import RegisterScreen from '../screens/Profile/Register';
 import ForgotPasswordScreen from '../screens/Profile/ForgotPassword';
 import ResetPasswordScreen from '../screens/Profile/ResetPassword';
@@ -88,6 +88,7 @@ const HomeStack = createStackNavigator({
   }
 );
 
+/*
 HomeStack.navigationOptions = ({ navigation }) => {   
   let tabBarVisible = true;
   let routeName = navigation.state.routes[navigation.state.index].routeName
@@ -98,6 +99,7 @@ HomeStack.navigationOptions = ({ navigation }) => {
       tabBarVisible,
   }
 }
+*/
 
 const ProfileStack = createStackNavigator({
   Login: {
@@ -121,27 +123,30 @@ const ProfileStack = createStackNavigator({
     screen: RegisterScreen,
     navigationOptions: ({ navigation }) => ({
       header: (
-        <Header left={<Block />} white transparent navigation={navigation} />
+        //<Header left={<Block />} white transparent navigation={navigation} />
+        <Header title={i18n.t('profile.title')} navigation={navigation} />
       ),
-      headerTransparent: true
+      //headerTransparent: true
     })
   },
   ForgotPassword: {
     screen: ForgotPasswordScreen,
     navigationOptions: ({ navigation }) => ({
       header: (
-        <Header left={<Block />} white transparent navigation={navigation} />
+        //<Header left={<Block />} white transparent navigation={navigation} />
+        <Header title={i18n.t('profile.title')} navigation={navigation} />
       ),
-      headerTransparent: true
+      //headerTransparent: true
     })
     },
     ResetPassword: {
       screen: ResetPasswordScreen,
       navigationOptions: ({ navigation }) => ({
         header: (
-          <Header left={<Block />} white transparent navigation={navigation} />
+          //<Header left={<Block />} white transparent navigation={navigation} />
+          <Header title={i18n.t('profile.title')} navigation={navigation} />
         ),
-        headerTransparent: true
+        //headerTransparent: true
       })
     },
 },{
@@ -152,6 +157,7 @@ const ProfileStack = createStackNavigator({
   headerMode: 'none',
 });
 
+/*
 ProfileStack.navigationOptions = ({ navigation }) => {
   let tabBarVisible = true;
   let routeName = navigation.state.routes[navigation.state.index].routeName
@@ -162,6 +168,7 @@ ProfileStack.navigationOptions = ({ navigation }) => {
       tabBarVisible,
   }
 }
+*/
 
 const HeadquartersStack = createStackNavigator({
   Headquarters: {
@@ -211,7 +218,7 @@ const SettingsStack = createStackNavigator({
       header: (
         <Header title={i18n.t('navigation.settings')} navigation={navigation} />
       ),
-      headerTransparent: true
+      //headerTransparent: true
     }),
   }
 },{

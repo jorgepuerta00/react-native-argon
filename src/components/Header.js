@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   },
   title: {
     width: '100%',
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'center',
     fontWeight: 'bold'
   },

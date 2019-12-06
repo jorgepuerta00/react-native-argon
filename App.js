@@ -3,6 +3,7 @@ import { Image } from 'react-native';
 
 import { Asset } from 'expo-asset';
 import { Block, GalioProvider } from 'galio-framework';
+import { firebaseApp } from "./src/utils/FireBase"
 
 import { Images, articles, argonTheme } from './src/constants';
 import Screens from './src/navigation/MainTabNavigator';

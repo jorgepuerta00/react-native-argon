@@ -1,115 +1,140 @@
-import React from "react";
+import React, {useState} from "react";
 import { StyleSheet, ImageBackground, Dimensions, StatusBar, KeyboardAvoidingView } from "react-native";
 import { Block, Checkbox, Text, Input } from "galio-framework";
 
-import { Button } from "../../components";
-import { Images, argonTheme } from "../../constants";
+import { validateEmail } from '../../utils/validation';
 
 import SocialButtons from '../../components/SocialButtons';
+import { Button } from "../../components";
+import { Images, argonTheme } from "../../constants";
 
 // Internationalization
 import i18n from '../../locales/i18n';
 
 const { width, height } = Dimensions.get("screen");
 
-class Register extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
+export default function Register() {
   
-  render() {
-    const { navigation } = this.props;
+  const [ nameUser, setNameUser ] = useState("");
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [ repeatPassword, setRepeatPassword ] = useState("");
+  const [ privatePolicy, setPrivatePolicy ] = useState("");
 
-    return (
-      <Block flex middle>
-        <StatusBar hidden />
-        <ImageBackground source={Images.RegisterBackground} style={{ width, height, zIndex: 1 }} >
-          <Block flex middle>
-            <Block style={styles.registerContainer}>
-              <Block flex={0.25} middle style={styles.socialConnect}>
-                <SocialButtons dark={true} name={i18n.t('register.signInGoogle')}/>
+  const register = () => {
+    if(!email || !password || !repeatPassword || !nameUser){
+      console.log("campos son obligatorios");
+    }else{
+      if(!validateEmail(email)){
+        console.log("mail incorrecto");
+      }
+      else{
+        if(!privatePolicy){
+          console.log("acepte las politicas de privacidad");
+        }
+        else{
+          console.log("correcto");
+        }
+      }
+    }
+  };
+
+  return (
+    <Block flex middle>
+      <StatusBar hidden />
+      <ImageBackground source={Images.RegisterBackground} style={{ width, height, zIndex: 1 }} >
+        <Block flex middle>
+          <Block style={styles.registerContainer}>
+            <Block flex={0.25} middle style={styles.socialConnect}>
+              <SocialButtons 
+                dark={true} 
+                name={i18n.t('register.signInGoogle')}
+                onPress={() => console.log(i18n.t('register.signInGoogle'))} 
+              />
+            </Block>
+            <Block flex>
+              <Block flex={0.1} middle>
+                <Text style={styles.textSignIn}>
+                {i18n.t('register.signInSubtitle')}
+                </Text>
               </Block>
-              <Block flex>
-                <Block flex={0.1} middle>
-                  <Text style={styles.textSignIn}>
-                  {i18n.t('register.signInSubtitle')}
-                  </Text>
-                </Block>
-                <Block flex center>
-                  <KeyboardAvoidingView
-                    style={{ flex: 1 }}
-                    behavior="padding"
-                    enabled
-                  >
-                    <Block width={width * 0.8} >
-                      <Input
-                        borderless
-                        placeholder={i18n.t('register.name')}
-                      />
+              <Block flex center>
+                <KeyboardAvoidingView
+                  style={{ flex: 1 }}
+                  behavior="padding"
+                  enabled
+                >
+                  <Block width={width * 0.8} >
+                    <Input
+                      borderless
+                      placeholder={i18n.t('register.name')}
+                      onChange={e => setNameUser(e.nativeEvent.text)} 
+                    />
+                  </Block>
+                  <Block width={width * 0.8} >
+                    <Input
+                      borderless
+                      placeholder={i18n.t('register.email')}
+                      onChange={e => setEmail(e.nativeEvent.text)} 
+                    />
+                  </Block>
+                  <Block width={width * 0.8}>
+                    <Input
+                      password
+                      borderless
+                      placeholder={i18n.t('register.password')}
+                      onChange={e => setPassword(e.nativeEvent.text)} 
+                    />
+                    <Input
+                      password
+                      borderless
+                      placeholder={i18n.t('Resetpassword.confirmPassword')}
+                      onChange={e => setRepeatPassword(e.nativeEvent.text)} 
+                    />
+                    <Block row style={styles.passwordCheck}>
+                      <Text size={12} color={argonTheme.COLORS.MUTED}>
+                      {i18n.t('register.passwordStrength')}
+                      </Text>
+                      <Text bold size={12} color={argonTheme.COLORS.SUCCESS}>
+                        {" "}
+                        {i18n.t('register.passwordStrong')}
+                      </Text>
                     </Block>
-                    <Block width={width * 0.8} >
-                      <Input
-                        borderless
-                        placeholder={i18n.t('register.email')}
-                      />
-                    </Block>
-                    <Block width={width * 0.8}>
-                      <Input
-                        password
-                        borderless
-                        placeholder={i18n.t('register.password')}
-                      />
-                      <Input
-                        password
-                        borderless
-                        placeholder={i18n.t('Resetpassword.confirmPassword')}
-                      />
-                      <Block row style={styles.passwordCheck}>
-                        <Text size={12} color={argonTheme.COLORS.MUTED}>
-                        {i18n.t('register.passwordStrength')}
-                        </Text>
-                        <Text bold size={12} color={argonTheme.COLORS.SUCCESS}>
-                          {" "}
-                          {i18n.t('register.passwordStrong')}
-                        </Text>
-                      </Block>
-                    </Block>
-                    <Block row width={width * 0.75}>
-                      <Checkbox
-                        checkboxStyle={{
-                          borderWidth: 3
-                        }}
-                        color={argonTheme.COLORS.PRIMARY}
-                        label={i18n.t('register.agreementText')}
-                      />
-                      <Button
-                        style={{ width: 140 }}
-                        color="transparent"
-                        textStyle={{
-                          color: argonTheme.COLORS.PRIMARY,
-                          fontSize: 14
-                        }}
-                      >
-                        {i18n.t('register.privacyPolicy')}
-                      </Button>
-                    </Block>
-                    <Block middle>
-                      <Button color="primary" style={styles.createButton} onPress={() => navigation.navigate("Profile")}>
-                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                        {i18n.t('register.createAccount')}
-                        </Text>
-                      </Button>
-                    </Block>
-                  </KeyboardAvoidingView>
-                </Block>
+                  </Block>
+                  <Block row width={width * 0.75}>
+                    <Checkbox
+                      checkboxStyle={{
+                        borderWidth: 3
+                      }}
+                      color={argonTheme.COLORS.PRIMARY}
+                      label={i18n.t('register.agreementText')}
+                    />
+                    <Button
+                      style={{ width: 140 }}
+                      color="transparent"
+                      textStyle={{
+                        color: argonTheme.COLORS.PRIMARY,
+                        fontSize: 14
+                      }}
+                    >
+                      {i18n.t('register.privacyPolicy')}
+                    </Button>
+                  </Block>
+                  <Block middle>
+                    <Button color="primary" style={styles.createButton} onPress={register}>
+                      <Text bold size={14} color={argonTheme.COLORS.WHITE}>
+                      {i18n.t('register.createAccount')}
+                      </Text>
+                    </Button>
+                  </Block>
+                </KeyboardAvoidingView>
               </Block>
             </Block>
           </Block>
-        </ImageBackground>
-      </Block>
-    );
-  }
+        </Block>
+      </ImageBackground>
+    </Block>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -174,5 +199,3 @@ const styles = StyleSheet.create({
     marginTop: 25
   }
 });
-
-export default Register;
