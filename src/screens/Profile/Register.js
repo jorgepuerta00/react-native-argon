@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import { StyleSheet, ImageBackground, Dimensions, StatusBar, KeyboardAvoidingView } from "react-native";
 import { Block, Checkbox, Text, Input } from "galio-framework";
+import { withNavigation } from "react-navigation";
 
 import { validateEmail } from '../../utils/validation';
-
 import SocialButtons from '../../components/SocialButtons';
 import { Button } from "../../components";
 import { Images, argonTheme } from "../../constants";
@@ -15,8 +15,8 @@ import i18n from '../../locales/i18n';
 
 const { width, height } = Dimensions.get("screen");
 
-export default function Register() {
-  
+function RegisterForm(props) {
+  const { navigation } = props;
   const [ nameUser, setNameUser ] = useState("");
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
@@ -39,7 +39,7 @@ export default function Register() {
           .auth()
           .createUserWithEmailAndPassword(email, password)
           .then(() => {
-            console.log("Created user");
+            navigation.navigate("Login");
           })
           .catch(()=>{
             console.log("Error creating account, try Google sync");
@@ -147,6 +147,8 @@ export default function Register() {
     </Block>
   );
 }
+
+export default withNavigation(RegisterForm);
 
 const styles = StyleSheet.create({
   textSignIn: {

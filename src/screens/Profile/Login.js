@@ -137,7 +137,8 @@ const LoginPage = props => {
                   </Button>
                 </Block>
                 <Block style={styles.containerSignUp}>
-                  <Text style={styles.text} onPress={() => props.navigation.navigate("Register")}>
+                  <Text style={styles.text} 
+                    onPress={() => props.navigation.navigate("Register")}>
                     {i18n.t('login.createAccount')}
                   </Text>
                   <Text style={styles.text} onPress={() => props.navigation.navigate("ForgotPassword")}>
