@@ -25,7 +25,8 @@
         "text": "An artist of considerable range, Jessica name taken by Melbourne …",
         "showMore": "Show More",
         "album": "Album",
-        "viewAll": "View all"
+        "viewAll": "View all",
+        "signOut": "Sign Out"
     },
     "login": {
         "title":"Login",

@@ -8,6 +8,8 @@ import SocialButtons from '../../components/SocialButtons';
 import { Button } from "../../components";
 import { Images, argonTheme } from "../../constants";
 
+import firebase from "firebase";
+
 // Internationalization
 import i18n from '../../locales/i18n';
 
@@ -21,19 +23,27 @@ export default function Register() {
   const [ repeatPassword, setRepeatPassword ] = useState(" ");
   const [ privatePolicy, setPrivatePolicy ] = useState(true);
 
-  const register = () => {
+  const register = async () => {
     if(!email || !password || !repeatPassword || !nameUser){
-      console.log("campos son obligatorios");      
+      console.log("Please, you must fill in the required fields");      
     }else{
       if(!validateEmail(email)){
-        console.log("mail incorrecto");
+        console.log("fail mail");
       }
       else{
         if(!privatePolicy){
-          console.log("acepte las politicas de privacidad");
+          console.log("Please, you must accept the privacy policies");
         }
         else{
-          console.log("correcto");
+          await firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then(() => {
+            console.log("Created user");
+          })
+          .catch(()=>{
+            console.log("Error creating account, try Google sync");
+          })
         }
       }
     }

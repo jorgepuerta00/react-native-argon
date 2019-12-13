@@ -25,7 +25,8 @@
         "text": "Artista de considerable alcance, nombre de Jessica tomado por Melbourne …",
         "showMore": "Ver más",
         "album": "Álbum",
-        "viewAll": "Ver todo"
+        "viewAll": "Ver todo",
+        "signOut": "Cerrar Sesión"
     },
     "login": {
         "title": "Login",

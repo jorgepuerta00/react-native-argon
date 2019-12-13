@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, StatusBar, Dimensions } from "react-native";
 import { withNavigation } from "react-navigation";
 import { Block, Text, Input } from "galio-framework";
 import * as Google from 'expo-google-app-auth';
-
+import firebase from "firebase";
 import { Button } from "../../components";
 import { Images, argonTheme } from "../../constants";
 import SocialButtons from '../../components/SocialButtons';
-
+import { validateEmail } from '../../utils/validation';
 import UserLogged from "../Profile/Profile"
 
 // Internationalization
@@ -25,6 +25,28 @@ class Login extends React.Component {
       photoUrl: ""
     }
   }
+
+  login = async (email, password) => {
+    if(!email || !password){
+      console.log("Please, you must fill in the required fields");      
+    }else{
+      if(!validateEmail(email)){
+        console.log("fail mail");
+      }
+      else{
+        await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(()=>{
+          console.log("Logged User...");
+        })
+        .catch(()=>{
+          console.log("Error login account, try Google sync");
+        })
+      }
+    }
+  }
+
   signIn = async () => {
     try {
       const result = await Google.logInAsync({
@@ -56,14 +78,16 @@ class Login extends React.Component {
         {this.state.signedIn ? (
           <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} />          
         ) : (
-          <LoginPage navigation={navigation} signIn={this.signIn} />
+          <LoginPage navigation={navigation} signIn={this.signIn} login={this.login} />
         )}        
       </Block>
     );
   }
 }
 
-const LoginPage = props => {
+const LoginPage = props => {  
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
   return (
     <ImageBackground source={Images.RegisterBackground} style={{ width, height, zIndex: 1 }} >
       <StatusBar hidden />
@@ -94,6 +118,7 @@ const LoginPage = props => {
                   <Input
                     borderless
                     placeholder={i18n.t('login.email')}
+                    onChange={e => setEmail(e.nativeEvent.text)} 
                   />
                 </Block>
                 <Block width={width * 0.8}>
@@ -101,10 +126,11 @@ const LoginPage = props => {
                     password
                     borderless
                     placeholder={i18n.t('login.password')}
+                    onChange={e => setPassword(e.nativeEvent.text)} 
                   />
                 </Block>
                 <Block middle>
-                  <Button color="primary" style={styles.createButton} onPress={() => console.log(i18n.t('login.login'))}>
+                  <Button color="primary" style={styles.createButton} onPress={() => props.login(email, password)}>
                     <Text bold size={14} color={argonTheme.COLORS.WHITE}>
                     {i18n.t('login.login')}
                     </Text>

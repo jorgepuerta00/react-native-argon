@@ -3,11 +3,19 @@ import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground } from "reac
 import { withNavigation } from "react-navigation";
 import { Block, Text, theme } from "galio-framework";
 import { Images } from "../../constants";
+import { Button } from "../../components";
+import { argonTheme } from "../../constants";
+
+import firebase from "firebase";
+
+// Internationalization
+import i18n from '../../locales/i18n';
 
 const { width, height } = Dimensions.get("screen");
 const thumbMeasure = (width - 48 - 32) / 3;
 
 class Profile extends React.Component {
+  
   render() {
     const { name, photoUrl} = this.props;
     return (
@@ -23,6 +31,13 @@ class Profile extends React.Component {
                     <Text bold size={28} color="#32325D">{name}</Text>
                     <Text size={16} color="#32325D" style={{ marginTop: 10 }}></Text>
                   </Block>                  
+                </Block>
+                <Block middle>
+                  <Button color="primary" style={styles.createButton} onPress={() => firebase.auth().signOut()}>
+                    <Text bold size={14} color={argonTheme.COLORS.WHITE}>
+                    {i18n.t('profile.signOut')}
+                    </Text>
+                  </Button>
                 </Block>
               </Block>
             </ScrollView>
@@ -84,6 +99,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: thumbMeasure,
     height: thumbMeasure
+  },
+  createButton: {
+    width: width * 0.5,
+    marginTop: 25
   }
 });
 
