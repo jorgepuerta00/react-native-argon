@@ -10,9 +10,7 @@ const iOSLogo = require("../../assets/imgs/ios.png");
 const androidLogo = require("../../assets/imgs/android.png");
 const GoogleLogo = require("../../assets/imgs/google-logo.png");
 const FacebookLogo = require("../../assets/imgs/facebook-logo.png");
-
-// internet imgs
-const ProfilePicture = 'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?fit=crop&w=1650&q=80';
+const blankProfilePicture = require("../../assets/imgs/blank-profile-picture.png");
 
 const Viewed = [
   'https://images.unsplash.com/photo-1501601983405-7c7cabaa1581?fit=crop&w=240&q=80',
@@ -37,7 +35,6 @@ export default {
   Logo,
   LogoOnboarding,
   ProfileBackground,
-  ProfilePicture,
   RegisterBackground,
   Viewed,
   Products,
@@ -46,5 +43,6 @@ export default {
   iOSLogo,
   androidLogo,
   GoogleLogo,
-  FacebookLogo
+  FacebookLogo,
+  blankProfilePicture
 };

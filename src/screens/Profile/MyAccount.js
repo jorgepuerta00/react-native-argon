@@ -5,6 +5,9 @@ import Loading from "../Profile/loading"
 import UserGuest from "../Profile/Login"
 import UserLogged from "../Profile/Profile"
 
+// Internationalization
+import i18n from '../../locales/i18n';
+
 export default function MyAccount(){
     const [login, setLogin] = useState(null);
 
@@ -18,7 +21,7 @@ export default function MyAccount(){
 
     if(login === null){
         return (
-            <Loading isVisible={true} text="Cargando..."/>
+            <Loading isVisible={true} text={i18n.t('myAccount.loading')}/>
         )
     }
 

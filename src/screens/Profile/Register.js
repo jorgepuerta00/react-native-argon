@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { StyleSheet, ImageBackground, Dimensions, StatusBar, KeyboardAvoidingView } from "react-native";
+import { Alert, StyleSheet, ImageBackground, Dimensions, StatusBar, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback } from "react-native";
 import { Block, Checkbox, Text, Input } from "galio-framework";
 import { withNavigation } from "react-navigation";
 
@@ -24,15 +24,20 @@ function RegisterForm(props) {
   const [ privatePolicy, setPrivatePolicy ] = useState(true);
 
   const register = async () => {
+    let title = i18n.t('register.titleAlert');
+    let message = "";    
     if(!email || !password || !repeatPassword || !nameUser){
-      console.log("Please, you must fill in the required fields");      
+      message = i18n.t('register.fieldRequired')
+      showAlert(title, message)
     }else{
       if(!validateEmail(email)){
-        console.log("fail mail");
+        message = i18n.t('register.validEmail')
+        showAlert(title, message)
       }
       else{
         if(!privatePolicy){
-          console.log("Please, you must accept the privacy policies");
+          message = i18n.t('register.privacyPolicyRequired') 
+          showAlert(title, message)
         }
         else{
           await firebase
@@ -42,14 +47,27 @@ function RegisterForm(props) {
             navigation.navigate("Login");
           })
           .catch(()=>{
-            console.log("Error creating account, try Google sync");
+            message = i18n.t('register.errorLogin')
+            showAlert(title, message)
           })
         }
       }
     }
   };
 
+  const showAlert = (title, message) => {
+    Alert.alert(
+      title,
+      message,
+      [     
+        {text: i18n.t('register.tryAgain'), onPress: () => console.log('Try Again Pressed')},
+      ],
+      {cancelable: false},
+    )
+  }
+
   return (
+    <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
     <Block flex middle>
       <StatusBar hidden />
       <ImageBackground source={Images.RegisterBackground} style={{ width, height, zIndex: 1 }} >
@@ -145,6 +163,7 @@ function RegisterForm(props) {
         </Block>
       </ImageBackground>
     </Block>
+    </TouchableWithoutFeedback>
   );
 }
 

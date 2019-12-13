@@ -2,9 +2,8 @@ import React from "react";
 import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground } from "react-native";
 import { withNavigation } from "react-navigation";
 import { Block, Text, theme } from "galio-framework";
-import { Images } from "../../constants";
 import { Button } from "../../components";
-import { argonTheme } from "../../constants";
+import { Images, argonTheme } from "../../constants";
 
 import firebase from "firebase";
 
@@ -17,18 +16,29 @@ const thumbMeasure = (width - 48 - 32) / 3;
 class Profile extends React.Component {
   
   render() {
-    const { name, photoUrl} = this.props;
+    const { email, name, photoUrl} = this.props;
+    console.log("photoUrl: " + photoUrl)
+    console.log("name: " + name)
+    console.log("email: " + email)
     return (
         <Block flex style={styles.profile}>
           <ImageBackground source={Images.RegisterBackground} style={styles.profileContainer} >
             <ScrollView showsVerticalScrollIndicator={false} style={{ width, marginTop: '25%' }}>
               <Block flex style={styles.profileCard}>
                 <Block middle style={styles.avatarContainer}>
-                  <Image source={{ uri: photoUrl }} style={styles.avatar} />
+                  {                    
+                    photoUrl!==undefined?
+                    (<Image source={{ uri: photoUrl }} style={styles.avatar} />):                    
+                    (<Image source={Images.blankProfilePicture} style={styles.avatar} />)
+                  }                  
                 </Block>
                 <Block flex>
                   <Block middle style={styles.nameInfo}>
-                    <Text bold size={28} color="#32325D">{name}</Text>
+                    {                    
+                      name!==undefined?
+                      (<Text bold size={28} color="#32325D">{name}</Text>): 
+                      (<Text bold size={28} color="#32325D">{firebase.auth().currentUser.email}</Text>)
+                    } 
                     <Text size={16} color="#32325D" style={{ marginTop: 10 }}></Text>
                   </Block>                  
                 </Block>

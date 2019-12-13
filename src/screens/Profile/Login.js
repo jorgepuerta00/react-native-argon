@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, StatusBar, Dimensions } from "react-native";
+import { Alert, KeyboardAvoidingView, ImageBackground, Image, StyleSheet, StatusBar, Dimensions, Keyboard, TouchableWithoutFeedback } from "react-native";
 import { withNavigation } from "react-navigation";
 import { Block, Text, Input } from "galio-framework";
 import * as Google from 'expo-google-app-auth';
@@ -8,7 +8,7 @@ import { Button } from "../../components";
 import { Images, argonTheme } from "../../constants";
 import SocialButtons from '../../components/SocialButtons';
 import { validateEmail } from '../../utils/validation';
-import UserLogged from "../Profile/Profile"
+import ProfileScreen from "../Profile/Profile"
 
 // Internationalization
 import i18n from '../../locales/i18n';
@@ -22,26 +22,38 @@ class Login extends React.Component {
     this.state = {
       signedIn: false,
       name: "",
-      photoUrl: ""
+      photoUrl: "",
+      email: "",
+      validForm: false
     }
   }
 
   login = async (email, password) => {
+    let title = i18n.t('login.titleAlert');
+    let message = "";
     if(!email || !password){
-      console.log("Please, you must fill in the required fields");      
+      message = i18n.t('login.fieldRequired') 
+      showAlert(title, message)
     }else{
       if(!validateEmail(email)){
-        console.log("fail mail");
+        message = i18n.t('login.validEmail')
+        showAlert(title, message)
       }
       else{
         await firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(()=>{
-          console.log("Logged User...");
+          this.setState({
+            validForm: true,
+            name: "",
+            photoUrl: "",
+            email: email,
+          })
         })
         .catch(()=>{
-          console.log("Error login account, try Google sync");
+          message = i18n.t('login.errorLogin')
+          showAlert(title, message)
         })
       }
     }
@@ -61,7 +73,8 @@ class Login extends React.Component {
         this.setState({
           signedIn: true,
           name: result.user.name,
-          photoUrl: result.user.photoUrl
+          photoUrl: result.user.photoUrl,
+          email: result.user.email
         })
       } else {
         console.log("cancelled")
@@ -76,7 +89,7 @@ class Login extends React.Component {
     return (
       <Block flex middle>
         {this.state.signedIn ? (
-          <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} />          
+          <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} email={this.state.email} />          
         ) : (
           <LoginPage navigation={navigation} signIn={this.signIn} login={this.login} />
         )}        
@@ -85,10 +98,22 @@ class Login extends React.Component {
   }
 }
 
+const showAlert = (title, message) => {
+  Alert.alert(
+    title,
+    message,
+    [     
+      {text: i18n.t('register.tryAgain'), onPress: () => console.log('Try Again Pressed')},
+    ],
+    {cancelable: false},
+  )
+}
+
 const LoginPage = props => {  
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   return (
+    <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
     <ImageBackground source={Images.RegisterBackground} style={{ width, height, zIndex: 1 }} >
       <StatusBar hidden />
       <Block flex middle>
@@ -151,12 +176,13 @@ const LoginPage = props => {
         </Block>
       </Block>
     </ImageBackground>
+    </TouchableWithoutFeedback>
   )
 }
 
 const LoggedInPage = props => {
   return (
-    <UserLogged name={props.name} photoUrl={props.photoUrl} />
+    <ProfileScreen name={props.name} photoUrl={props.photoUrl} email={props.email}/>
   )
 }
 

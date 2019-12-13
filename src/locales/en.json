@@ -37,7 +37,11 @@
 		"login": "LOGIN",
 		"createAccount": "Create Account",
         "forgotPassword": "Forgot Password?",
-        "signInGoogle": "Sign in with Google"        
+        "titleAlert": "Sign in Alert",
+        "fieldRequired": "Please, you must fill in the required fields",
+        "validEmail": "Please enter a valid email",
+        "errorLogin": "The password you entered is incorrect. Pres try again.",
+        "tryAgain": "Try Again"
     },
     "register": {
         "title":"register",
@@ -53,7 +57,13 @@
         "agreementText": "I agree with the",
 		"privacyPolicy": "Privacy Policy",
         "createAccount": "CREATE ACCOUNT",
-        "signInGoogle": "Sign up with Google"  
+        "signInGoogle": "Sign up with Google",
+        "titleAlert": "Sign up Alert",
+        "fieldRequired": "Please, you must fill in the required fields",
+        "validEmail": "Please enter a valid email",        
+        "errorLogin": "The password you entered is incorrect. Pres try again.",
+        "tryAgain": "Try Again",
+        "privacyPolicyRequired": "Please, you must accept the privacy policies"
     },
     "settings": {
         "title":"Settings",
@@ -125,5 +135,8 @@
         "confirmMessage": "Would you like confirm this appointment on DATE at TIME",
         "cancel": "Cancel",
         "ok": "OK"
+    },
+    "myAccount": {
+        "loading": "loading..."
     }
   }

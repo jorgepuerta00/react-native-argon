@@ -125,16 +125,16 @@ export default class Appointment extends Component {
     Alert.alert(
       confirmAppointment,
       confirmMessage,
-        [          
-          {
-            text: i18n.t('appointment.cancel'),
-            onPress: () => console.log('Cancel Pressed'),
-            style: 'cancel',
-          },
-          {text: i18n.t('appointment.ok'), onPress: () => console.log('OK Pressed')},
-        ],
-        {cancelable: false},
-      );
+      [          
+        {
+          text: i18n.t('appointment.cancel'),
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {text: i18n.t('appointment.ok'), onPress: () => console.log('OK Pressed')},
+      ],
+      {cancelable: false},
+    );
   }
 
   renderEmptyItem(item) {

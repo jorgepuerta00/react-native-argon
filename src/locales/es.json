@@ -37,7 +37,12 @@
 		"login": "EMPEZAR",
 		"createAccount" : "Quiero Registrarme",
         "forgotPassword": "Olvidé mi contraseña",
-        "signInGoogle": "Ingresa con Google"
+        "signInGoogle": "Ingresa con Google",
+        "titleAlert": "Alerta de inicio de sesión",
+        "fieldRequired": "Por favor, debe completar los campos requeridos",
+        "validEmail": "Por favor, introduzca una dirección de correo electrónico válida",
+        "errorLogin": "La contraseña que ha ingresado es incorrecta, intente de nuevo.",
+        "tryAgain": "Intente Nuevamente"
     },
     "register": {
         "title":"Registrar",
@@ -53,7 +58,13 @@
         "agreementText": "Estoy de acuerdo con la",
         "privacyPolicy": "Política de privacidad",
         "createAccount": "CREAR CUENTA",
-        "signInGoogle": "Registrate con Google"
+        "signInGoogle": "Registrate con Google",
+        "titleAlert": "Alerta de registro",
+        "fieldRequired": "Por favor, debe completar los campos requeridos",
+        "validEmail": "Por favor, introduzca una dirección de correo electrónico válida",
+        "errorLogin": "La contraseña que ha ingresado es incorrecta, intente de nuevo.",
+        "tryAgain": "Intente Nuevamente",
+        "privacyPolicyRequired": "Por favor, debes aceptar las políticas de privacidad"
     },
     "settings": {
         "title": "Configuración",
@@ -125,5 +136,8 @@
         "confirmMessage": "¿Desea confirmar esta cita el DATE a la(s) TIME?",
         "cancel": "Cancelar",
         "ok": "OK"
+    },
+    "myAccount": {
+        "loading": "Cargando..."
     }
   }
