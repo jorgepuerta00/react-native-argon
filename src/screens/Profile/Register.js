@@ -18,12 +18,12 @@ export default function Register() {
   const [ nameUser, setNameUser ] = useState("");
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
-  const [ repeatPassword, setRepeatPassword ] = useState("");
-  const [ privatePolicy, setPrivatePolicy ] = useState("");
+  const [ repeatPassword, setRepeatPassword ] = useState(" ");
+  const [ privatePolicy, setPrivatePolicy ] = useState(true);
 
   const register = () => {
     if(!email || !password || !repeatPassword || !nameUser){
-      console.log("campos son obligatorios");
+      console.log("campos son obligatorios");      
     }else{
       if(!validateEmail(email)){
         console.log("mail incorrecto");
@@ -103,6 +103,7 @@ export default function Register() {
                   </Block>
                   <Block row width={width * 0.75}>
                     <Checkbox
+                      onChange={() => setPrivatePolicy(!privatePolicy)} 
                       checkboxStyle={{
                         borderWidth: 3
                       }}
