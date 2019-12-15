@@ -7,7 +7,7 @@ export default {
     INFO: '#11CDEF',
     ERROR: '#F5365C',
     SUCCESS: '#2DCE89',
-    WARNING: '#FB6340',
+    WARNING: '#FB6340', 
     /*not yet changed */
     MUTED: '#ADB5BD',
     INPUT: '#DCDCDC',
@@ -29,6 +29,10 @@ export default {
     WHITE: '#FFFFFF',
     BLACK: '#000000',
     INSTAGRAM: '#E1306C',
-    GOOGLE: '#D50F25'
+    GOOGLE: '#D50F25',
+    WEAK: '#F5365C',
+    FAIR: '#FBA240',
+    GOOD: '#5E72E4',
+    STRONG: '#2DCE89',
   }
 };

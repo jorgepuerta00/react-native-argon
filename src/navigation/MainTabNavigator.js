@@ -88,19 +88,6 @@ const HomeStack = createStackNavigator({
   }
 );
 
-/*
-HomeStack.navigationOptions = ({ navigation }) => {   
-  let tabBarVisible = true;
-  let routeName = navigation.state.routes[navigation.state.index].routeName
-  if ( routeName == 'Pro') {
-      tabBarVisible = false
-  }
-  return {
-      tabBarVisible,
-  }
-}
-*/
-
 const ProfileStack = createStackNavigator({
   Login: {
     screen: LoginScreen,
@@ -123,30 +110,24 @@ const ProfileStack = createStackNavigator({
     screen: RegisterScreen,
     navigationOptions: ({ navigation }) => ({
       header: (
-        //<Header left={<Block />} white transparent navigation={navigation} />
         <Header title={i18n.t('profile.title')} navigation={navigation} />
       ),
-      //headerTransparent: true
     })
   },
   ForgotPassword: {
     screen: ForgotPasswordScreen,
     navigationOptions: ({ navigation }) => ({
       header: (
-        //<Header left={<Block />} white transparent navigation={navigation} />
         <Header title={i18n.t('profile.title')} navigation={navigation} />
       ),
-      //headerTransparent: true
     })
     },
     ResetPassword: {
       screen: ResetPasswordScreen,
       navigationOptions: ({ navigation }) => ({
         header: (
-          //<Header left={<Block />} white transparent navigation={navigation} />
           <Header title={i18n.t('profile.title')} navigation={navigation} />
         ),
-        //headerTransparent: true
       })
     },
 },{
@@ -156,19 +137,6 @@ const ProfileStack = createStackNavigator({
   transitionConfig,
   headerMode: 'none',
 });
-
-/*
-ProfileStack.navigationOptions = ({ navigation }) => {
-  let tabBarVisible = true;
-  let routeName = navigation.state.routes[navigation.state.index].routeName
-  if ( routeName == 'ResetPassword' || routeName == 'Pro' || routeName == 'Register' || routeName == 'ForgotPassword' || routeName == 'Login' ) {
-      tabBarVisible = false
-  }
-  return {
-      tabBarVisible,
-  }
-}
-*/
 
 const HeadquartersStack = createStackNavigator({
   Headquarters: {
@@ -218,7 +186,6 @@ const SettingsStack = createStackNavigator({
       header: (
         <Header title={i18n.t('navigation.settings')} navigation={navigation} />
       ),
-      //headerTransparent: true
     }),
   }
 },{

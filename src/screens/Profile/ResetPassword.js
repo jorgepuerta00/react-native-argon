@@ -1,10 +1,9 @@
 import React from "react";
-import { ImageBackground, Image, StyleSheet, StatusBar, Dimensions, KeyboardAvoidingView } from "react-native";
-import { Block, Text, theme, Input } from "galio-framework";
+import { ImageBackground, Image, StyleSheet, StatusBar, Dimensions } from "react-native";
+import { Block, Text, theme } from "galio-framework";
 
-import { Button } from "../../components";
-import argonTheme from "../../constants/Theme";
-import Images from "../../constants/Images";
+import { Button, Input } from "../../components";
+import { Images, argonTheme } from "../../constants";
 
 // Internationalization
 import i18n from '../../locales/i18n';
@@ -38,10 +37,7 @@ class ResetPassword extends React.Component {
                   </Block>
                   <Block>
                     <Block width={width * 0.8}>
-                      <Input
-                        borderless
-                        placeholder={i18n.t('Resetpassword.code')}
-                      />
+                      <Input borderless placeholder={i18n.t('Resetpassword.code')}/>
                     </Block>
                     <Block width={width * 0.8}>
                     <Input

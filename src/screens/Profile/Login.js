@@ -1,14 +1,17 @@
 import React, {useState} from "react";
 import { Alert, KeyboardAvoidingView, ImageBackground, Image, StyleSheet, StatusBar, Dimensions, Keyboard, TouchableWithoutFeedback } from "react-native";
 import { withNavigation } from "react-navigation";
-import { Block, Text, Input } from "galio-framework";
-import * as Google from 'expo-google-app-auth';
-import firebase from "firebase";
-import { Button } from "../../components";
+import { Block, Text } from "galio-framework";
+
+import { Button, Input, SocialButtons } from "../../components";
 import { Images, argonTheme } from "../../constants";
-import SocialButtons from '../../components/SocialButtons';
+
 import { validateEmail } from '../../utils/validation';
+
 import ProfileScreen from "../Profile/Profile"
+
+import firebase from "firebase";
+import * as Google from 'expo-google-app-auth';
 
 // Internationalization
 import i18n from '../../locales/i18n';
@@ -88,13 +91,13 @@ class Login extends React.Component {
     const { navigation } = this.props;
     return (
       <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
-      <Block flex middle>
-        {this.state.signedIn ? (
-          <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} email={this.state.email} />          
-        ) : (
-          <LoginPage navigation={navigation} signIn={this.signIn} login={this.login} />
-        )}        
-      </Block>
+        <Block flex middle>
+          {this.state.signedIn ? (
+            <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} email={this.state.email} />          
+          ) : (
+            <LoginPage navigation={navigation} signIn={this.signIn} login={this.login} />
+          )}        
+        </Block>
       </TouchableWithoutFeedback>
     );
   }
@@ -130,16 +133,10 @@ const LoginPage = props => {
           </Block>
           <Block flex>
             <Block flex={0.17} middle>
-              <Text style={styles.textSignIn}>
-              {i18n.t('login.signInSubtitle')}
-              </Text>
+              <Text style={styles.textSignIn}> {i18n.t('login.signInSubtitle')} </Text>
             </Block>
             <Block flex center>
-              <KeyboardAvoidingView
-                style={{ flex: 1 }}
-                behavior="padding"
-                enabled
-              >
+              <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding" enabled>
                 <Block width={width * 0.8} style={{ marginBottom: 15 }}>
                   <Input
                     borderless
@@ -157,19 +154,12 @@ const LoginPage = props => {
                 </Block>
                 <Block middle>
                   <Button color="primary" style={styles.createButton} onPress={() => props.login(email, password)}>
-                    <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                    {i18n.t('login.login')}
-                    </Text>
+                    <Text bold size={14} color={argonTheme.COLORS.WHITE}> {i18n.t('login.login')} </Text>
                   </Button>
                 </Block>
                 <Block style={styles.containerSignUp}>
-                  <Text style={styles.text} 
-                    onPress={() => props.navigation.navigate("Register")}>
-                    {i18n.t('login.createAccount')}
-                  </Text>
-                  <Text style={styles.text} onPress={() => props.navigation.navigate("ForgotPassword")}>
-                    {i18n.t('login.forgotPassword')}
-                  </Text>
+                  <Text style={styles.text}  onPress={() => props.navigation.navigate("Register")}> {i18n.t('login.createAccount')} </Text>
+                  <Text style={styles.text} onPress={() => props.navigation.navigate("ForgotPassword")}> {i18n.t('login.forgotPassword')} </Text>
                 </Block>
               </KeyboardAvoidingView>
             </Block>

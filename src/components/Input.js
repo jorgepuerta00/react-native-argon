@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import { Input } from "galio-framework";
 
-import Icon from './Icon';
 import { argonTheme } from "../constants";
 
 class ArInput extends React.Component {
@@ -25,14 +24,6 @@ class ArInput extends React.Component {
         placeholderTextColor={argonTheme.COLORS.MUTED}
         style={inputStyles}
         color={argonTheme.COLORS.HEADER}
-        iconContent={
-          <Icon
-            size={14}
-            color={argonTheme.COLORS.ICON}
-            name="link"
-            family="AntDesign"
-          />
-        }
         {...this.props}
       />
     );

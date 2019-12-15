@@ -1,11 +1,9 @@
 import React from "react";
 import { ImageBackground, Image, StyleSheet, StatusBar, Dimensions, KeyboardAvoidingView } from "react-native";
-import { Block, Text, theme, Input } from "galio-framework";
+import { Block, Text, theme } from "galio-framework";
 
-import { Button } from "../../components";
-
-import argonTheme from "../../constants/Theme";
-import Images from "../../constants/Images";
+import { Button, Input } from "../../components";
+import { Images, argonTheme } from "../../constants";
 
 // Internationalization
 import i18n from '../../locales/i18n';
@@ -29,32 +27,21 @@ class ForgotPassword extends React.Component {
               <Block flex space="around" style={{ zIndex: 2 }}>
                 <Block style={styles.title}>
                   <Block>
-                    <Text color="white" size={40}>
-                    {i18n.t('forgotpassword.forgotPasswordTitleOne')}
-                    </Text>
+                    <Text color="white" size={40}> {i18n.t('forgotpassword.forgotPasswordTitleOne')} </Text>
                   </Block>
                   <Block>
-                    <Text color="white" size={40}>
-                    {i18n.t('forgotpassword.forgotPasswordTitleTwo')}
-                    </Text>
+                    <Text color="white" size={40}> {i18n.t('forgotpassword.forgotPasswordTitleTwo')} </Text>
                   </Block>
                   <Block style={styles.subTitle}>
-                    <Text color="white" size={16}>
-                    {i18n.t('forgotpassword.steps')}
-                    </Text>
+                    <Text color="white" size={16}> {i18n.t('forgotpassword.steps')} </Text>
                   </Block>
                   <Block>
                     <Block width={width * 0.8} style={{ marginBottom: 15 }}>
-                      <Input
-                        borderless
-                        placeholder={i18n.t('forgotpassword.typeEmail')}
-                      />
+                      <Input borderless placeholder={i18n.t('forgotpassword.typeEmail')} />
                     </Block>
                     <Block middle>
                       <Button color="primary" style={styles.createButton} onPress={() => navigation.navigate("ResetPassword")}>
-                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                        {i18n.t('forgotpassword.sendCode')}
-                        </Text>
+                        <Text bold size={14} color={argonTheme.COLORS.WHITE}> {i18n.t('forgotpassword.sendCode')} </Text>
                       </Button>
                     </Block>
                   </Block>

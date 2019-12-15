@@ -56,16 +56,16 @@ PasswordStrengthMeter.propTypes = {
 
 const styles = StyleSheet.create({
   strengthWeak: {
-    color: argonTheme.COLORS.ERROR
+    color: argonTheme.COLORS.WEAK
   },
   strengthFair: {
-    color: argonTheme.COLORS.WARNING
+    color: argonTheme.COLORS.FAIR
   },
   strengthGood: {
-    color: argonTheme.COLORS.INFO
+    color: argonTheme.COLORS.GOOD
   },
   strengthStrong: {
-    color: argonTheme.COLORS.SUCCESS
+    color: argonTheme.COLORS.STRONG
   }
 });
 
