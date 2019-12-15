@@ -3,7 +3,6 @@ import { ImageBackground, Image, StyleSheet, StatusBar, Dimensions, KeyboardAvoi
 import { Block, Text, theme, Input } from "galio-framework";
 
 import { Button } from "../../components";
-
 import argonTheme from "../../constants/Theme";
 import Images from "../../constants/Images";
 
@@ -13,9 +12,9 @@ import i18n from '../../locales/i18n';
 const { height, width } = Dimensions.get("screen");
 
 class ResetPassword extends React.Component {
+
   render() {
     const { navigation } = this.props;
-
     return (
         <Block flex style={styles.container}>
           <StatusBar hidden />
@@ -29,19 +28,13 @@ class ResetPassword extends React.Component {
               <Block flex space="around" style={{ zIndex: 2 }}>
                 <Block style={styles.title}>
                   <Block>
-                    <Text color="white" size={40}>
-                    {i18n.t('Resetpassword.forgotPasswordTitleOne')}
-                    </Text>
+                    <Text color="white" size={40}> {i18n.t('Resetpassword.forgotPasswordTitleOne')} </Text>
                   </Block>
                   <Block>
-                    <Text color="white" size={40}>
-                    {i18n.t('Resetpassword.forgotPasswordTitleTwo')}
-                    </Text>
+                    <Text color="white" size={40}> {i18n.t('Resetpassword.forgotPasswordTitleTwo')} </Text>
                   </Block>
                   <Block style={styles.subTitle}>
-                    <Text color="white" size={16}>
-                    {i18n.t('Resetpassword.steps')}
-                    </Text>
+                    <Text color="white" size={16}> {i18n.t('Resetpassword.steps')} </Text>
                   </Block>
                   <Block>
                     <Block width={width * 0.8}>
@@ -61,21 +54,10 @@ class ResetPassword extends React.Component {
                         borderless
                         placeholder={i18n.t('Resetpassword.confirmPassword')}
                       />
-                      <Block row style={styles.passwordCheck}>
-                        <Text size={12} color={argonTheme.COLORS.MUTED}>
-                        {i18n.t('Resetpassword.passwordStrength')}
-                        </Text>
-                        <Text bold size={12} color={argonTheme.COLORS.SUCCESS}>
-                          {" "}
-                          {i18n.t('Resetpassword.passwordStrong')}
-                        </Text>
-                      </Block>
                     </Block>
                     <Block middle>
                       <Button color="primary" style={styles.createButton} onPress={() => navigation.navigate("Profile")}>
-                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                        {i18n.t('Resetpassword.done')}
-                        </Text>
+                        <Text bold size={14} color={argonTheme.COLORS.WHITE}> {i18n.t('Resetpassword.done')} </Text>
                       </Button>
                     </Block>
                   </Block>

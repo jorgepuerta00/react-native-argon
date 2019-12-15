@@ -3,10 +3,11 @@ import { Alert, StyleSheet, ImageBackground, Dimensions, StatusBar, KeyboardAvoi
 import { Block, Checkbox, Text, Input } from "galio-framework";
 import { withNavigation } from "react-navigation";
 
-import { validateEmail } from '../../utils/validation';
-import SocialButtons from '../../components/SocialButtons';
-import { Button } from "../../components";
 import { Images, argonTheme } from "../../constants";
+import { Button } from "../../components";
+import validateEmail from '../../utils/validation';
+import PasswordStrengthMeter from '../../components/PasswordStrengthMeter';
+import SocialButtons from '../../components/SocialButtons';
 
 import firebase from "firebase";
 
@@ -16,6 +17,7 @@ import i18n from '../../locales/i18n';
 const { width, height } = Dimensions.get("screen");
 
 function RegisterForm(props) {
+  
   const { navigation } = props;
   const [ nameUser, setNameUser ] = useState("");
   const [ email, setEmail ] = useState("");
@@ -82,9 +84,7 @@ function RegisterForm(props) {
             </Block>
             <Block flex>
               <Block flex={0.1} middle>
-                <Text style={styles.textSignIn}>
-                {i18n.t('register.signInSubtitle')}
-                </Text>
+                <Text style={styles.textSignIn}> {i18n.t('register.signInSubtitle')} </Text>
               </Block>
               <Block flex center>
                 <KeyboardAvoidingView
@@ -120,13 +120,8 @@ function RegisterForm(props) {
                       onChange={e => setRepeatPassword(e.nativeEvent.text)} 
                     />
                     <Block row style={styles.passwordCheck}>
-                      <Text size={12} color={argonTheme.COLORS.MUTED}>
-                      {i18n.t('register.passwordStrength')}
-                      </Text>
-                      <Text bold size={12} color={argonTheme.COLORS.SUCCESS}>
-                        {" "}
-                        {i18n.t('register.passwordStrong')}
-                      </Text>
+                      <Text size={12} color={argonTheme.COLORS.MUTED}> {i18n.t('register.passwordStrength')} </Text>
+                      <PasswordStrengthMeter password={password}/>
                     </Block>
                   </Block>
                   <Block row width={width * 0.75}>

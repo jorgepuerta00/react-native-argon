@@ -139,5 +139,11 @@
     },
     "myAccount": {
         "loading": "Cargando..."
+    },
+    "PasswordStrengthMeter": {
+        "strengthWeak": "Baja",
+        "strengthFair": "Media",
+        "strengthGood": "Buena",
+        "strengthStrong": "Fuerte"
     }
   }

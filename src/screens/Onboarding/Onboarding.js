@@ -9,9 +9,9 @@ import i18n from '../../locales/i18n';
 const { height, width } = Dimensions.get("screen");
 
 class Onboarding extends React.Component {
+
   render() {
     const { navigation } = this.props;
-
     return (
       <Block flex style={styles.container}>
         <StatusBar hidden />

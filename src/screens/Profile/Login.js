@@ -87,6 +87,7 @@ class Login extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
+      <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
       <Block flex middle>
         {this.state.signedIn ? (
           <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} email={this.state.email} />          
@@ -94,6 +95,7 @@ class Login extends React.Component {
           <LoginPage navigation={navigation} signIn={this.signIn} login={this.login} />
         )}        
       </Block>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -113,7 +115,6 @@ const LoginPage = props => {
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   return (
-    <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
     <ImageBackground source={Images.RegisterBackground} style={{ width, height, zIndex: 1 }} >
       <StatusBar hidden />
       <Block flex middle>
@@ -176,7 +177,6 @@ const LoginPage = props => {
         </Block>
       </Block>
     </ImageBackground>
-    </TouchableWithoutFeedback>
   )
 }
 

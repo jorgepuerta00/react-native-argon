@@ -14,7 +14,6 @@ export default class Settings extends React.Component {
 
   renderItem = ({ item }) => {
     const {navigate} = this.props.navigation;
-
     switch(item.type) {
       case 'switch': 
         return (
@@ -45,23 +44,11 @@ export default class Settings extends React.Component {
   }
 
   render() {
-    const recommended = [
-      { title: i18n.t('settings.face'), id: "face", type: "switch" },
-      { title: i18n.t('settings.autolock'), id: "autolock", type: "switch" },
-      { title: i18n.t('settings.notifications'), id: "Notifications", type: "button" },
-    ];
-
-    const payment = [
-      { title: i18n.t('settings.payment'), id: "Payment", type: "button" },
-      { title: i18n.t('settings.gift'), id: "gift", type: "button" },
-    ];
-    
     const privacy = [
       { title: i18n.t('settings.agreement'), id: "Agreement", type: "button" },
       { title: i18n.t('settings.privacy'), id: "Privacy", type: "button" },
       { title: i18n.t('settings.about'), id: "About", type: "button" },
     ];
-
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -75,9 +62,6 @@ export default class Settings extends React.Component {
               <Text bold center size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
                 {i18n.t('settings.titleSetionOne')}
               </Text>
-              {/*<Text center muted size={12}>
-                {i18n.t('settings.descriptionSetionOne')}
-          </Text>*/}
             </Block>
           }
         />        

@@ -37,7 +37,6 @@ const categories = [
 class Headquarters extends React.Component {
   renderProduct = (item, index) => {
     const { navigation } = this.props;
-
     return (
       <TouchableWithoutFeedback
         style={{ zIndex: 3 }}
