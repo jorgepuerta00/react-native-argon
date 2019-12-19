@@ -66,9 +66,9 @@ class Login extends React.Component {
     try {
       const result = await Google.logInAsync({
         androidClientId:
-          "295615939189-fslepo9g5675kurcaqfnvbg5mec6mgdm.apps.googleusercontent.com",
+          "************************************************************************",
         iosClientId: 
-          "295615939189-fd9uckf7nvjb8v1lpeer0kekqpbjfmef.apps.googleusercontent.com",
+          "************************************************************************",
         scopes: ["profile", "email"]
       })
 
